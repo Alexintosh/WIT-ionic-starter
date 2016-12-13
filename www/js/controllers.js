@@ -47,14 +47,16 @@ angular.module('starter.controllers', [])
         $wit.init();
   });
 
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+  $scope.offlineReq = function(){ 
+    $wit.request({
+      type:'get',
+      url:'jsonplaceholder.typicode.com/posts/12',
+      secure: false
+    }).then(function(res){
+      console.log('Generic GET request response: ',res);
+    });
+  };
+
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
