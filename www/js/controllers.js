@@ -41,7 +41,12 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
+.controller('PlaylistsCtrl', function($scope, $wit) {
+
+  ionic.Platform.ready(function(){
+        $wit.init();
+  });
+
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },
